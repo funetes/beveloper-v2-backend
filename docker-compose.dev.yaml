@@ -1,0 +1,31 @@
+version: '3.3'
+
+services:
+  backend:
+    # image: gcr.io/registryId/backend_dev
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    # volumes:
+    # - ./src:/backend/src
+    ports:
+      - 4000:4000
+    env_file:
+      - ./.env.dev
+    command: 'npm run start:dev'
+    # logging:
+    #   driver: gcplogs
+    links:
+      - postgres
+
+  postgres:
+    image: postgres:11
+    environment:
+      POSTGRES_PASSWORD: 'postgres'
+    ports:
+      - 5432:5432
+
+networks:
+  default:
+    external:
+      name: ipt_networks

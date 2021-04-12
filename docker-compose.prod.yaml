@@ -11,7 +11,7 @@ services:
     ports:
       - 4000:4000
     env_file:
-      - ./.env.dev
+      - ./.env.production
     command: 'npm run build && npm run start:prod'
     # logging:
     #   driver: gcplogs
@@ -21,7 +21,7 @@ services:
   postgres:
     image: postgres:11
     environment:
-      POSTGRES_PASSWORD: 'postgres'
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD_PRODUCTION}
     ports:
       - 5432:5432
 

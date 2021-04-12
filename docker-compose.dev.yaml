@@ -7,11 +7,11 @@ services:
       context: .
       dockerfile: Dockerfile.dev
     # volumes:
-    # - ./src:/backend/src
+    #   - ./src:/backend/src
     ports:
       - 4000:4000
     env_file:
-      - ./.env.dev
+      - ./.env.development
     command: 'npm run start:dev'
     # logging:
     #   driver: gcplogs
@@ -21,7 +21,7 @@ services:
   postgres:
     image: postgres:11
     environment:
-      POSTGRES_PASSWORD: 'postgres'
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD_DEVELOPMENT}
     ports:
       - 5432:5432
 

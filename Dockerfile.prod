@@ -1,11 +1,15 @@
 FROM node:14.9
 
 RUN mkdir backend
+
 WORKDIR /backend
 
-COPY  package.json /.
-RUN npm install && npm cache clean --force
+COPY package*.json ./
+
+RUN npm install glob rimraf
+
+RUN npm install
 
 COPY . /backend/
 
-CMD npm run build && npm run start:prod
+CMD npm run start:prod

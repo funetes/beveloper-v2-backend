@@ -9,7 +9,7 @@ import {
   OneToOne,
 } from 'typeorm';
 import { Comment } from '../../comment/entity/comment.entites';
-import { Common } from '../../common/entity/common.entites';
+import { Common } from '../../shared/common/entity/common.entites';
 import { FileManager } from '../../filemanager/entity/filemanager.entites';
 import { Lecture } from '../../lecture/entity/lecture.entites';
 

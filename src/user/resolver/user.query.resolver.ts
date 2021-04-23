@@ -3,7 +3,7 @@ import { User } from '../entity/user.entities';
 import { FetchUserService } from '../service/fetch-user/fetch-user.service';
 
 @Resolver(() => User)
-export class UserResolver {
+export class UserQueryResolver {
   constructor(private readonly fetchUserService: FetchUserService) {}
 
   @Query(() => String)

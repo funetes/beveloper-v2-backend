@@ -15,6 +15,7 @@ import { Board } from './board/entity/board.entites';
 import { Comment } from './comment/entity/comment.entites';
 import { Video } from './video/entity/video.entites';
 import { FileManager } from './filemanager/entity/filemanager.entites';
+import { EmailModule } from './shared/email/email.module';
 
 @Module({
   imports: [
@@ -43,6 +44,7 @@ import { FileManager } from './filemanager/entity/filemanager.entites';
     LectureModule,
     FilemanagerModule,
     CommentModule,
+    EmailModule,
   ],
   controllers: [],
   providers: [AppService],

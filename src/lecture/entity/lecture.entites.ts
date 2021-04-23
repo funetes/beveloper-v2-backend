@@ -8,7 +8,7 @@ import {
   OneToMany,
   OneToOne,
 } from 'typeorm';
-import { Common } from '../../common/entity/common.entites';
+import { Common } from '../../shared/common/entity/common.entites';
 import { FileManager } from '../../filemanager/entity/filemanager.entites';
 import { User } from '../../user/entity/user.entities';
 import { Video } from '../../video/entity/video.entites';

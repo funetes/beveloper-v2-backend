@@ -2,7 +2,7 @@ import { Field } from '@nestjs/graphql';
 import { IsString } from 'class-validator';
 import { Column, Entity, ManyToOne } from 'typeorm';
 import { Board } from '../../board/entity/board.entites';
-import { Common } from '../../common/entity/common.entites';
+import { Common } from '../../shared/common/entity/common.entites';
 import { Video } from '../../video/entity/video.entites';
 
 @Entity()

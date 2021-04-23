@@ -14,6 +14,7 @@ import { Lecture } from './lecture/entity/lecture.entites';
 import { Board } from './board/entity/board.entites';
 import { Comment } from './comment/entity/comment.entites';
 import { Video } from './video/entity/video.entites';
+import { FileManager } from './filemanager/entity/filemanager.entites';
 
 @Module({
   imports: [
@@ -31,7 +32,7 @@ import { Video } from './video/entity/video.entites';
       username: process.env.POSTGRES_USERNAME,
       password: process.env.POSTGRES_PASSWORD,
       database: process.env.POSTGRES_DATABASE,
-      entities: [User, Lecture, Board, Comment, Video],
+      entities: [User, Lecture, Board, Comment, Video, FileManager],
       synchronize: process.env.NODE_ENV === 'development',
     }),
     GraphQLModule.forRoot({

@@ -1,4 +1,4 @@
-import { Field, GraphQLISODateTime, ObjectType } from '@nestjs/graphql';
+import { Field, GraphQLISODateTime, Int, ObjectType } from '@nestjs/graphql';
 import {
   Column,
   CreateDateColumn,
@@ -11,11 +11,12 @@ import {
 @Entity()
 export class Common {
   @PrimaryGeneratedColumn()
+  @Field(() => Int)
   id: number;
 
   @Column({ type: 'timestamp', nullable: true })
   @Field(() => GraphQLISODateTime)
-  deletedAt: Date;
+  deletedAt?: Date;
 
   @CreateDateColumn({ type: 'timestamp' })
   @Field(() => GraphQLISODateTime)

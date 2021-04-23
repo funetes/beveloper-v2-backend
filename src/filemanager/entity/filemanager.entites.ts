@@ -1,3 +1,4 @@
+import { Field, Int } from '@nestjs/graphql';
 import { IsNumber, IsString } from 'class-validator';
 import { Column, Entity } from 'typeorm';
 import { Common } from '../../common/entity/common.entites';
@@ -6,13 +7,16 @@ import { Common } from '../../common/entity/common.entites';
 export class FileManager extends Common {
   @IsString()
   @Column()
+  @Field(() => String)
   url: string;
 
   @IsString()
-  @Column()
+  @Column({ nullable: false })
+  @Field(() => String)
   type: string;
 
   @IsNumber()
-  @Column()
+  @Column({ nullable: false })
+  @Field(() => Int)
   filesize: number;
 }

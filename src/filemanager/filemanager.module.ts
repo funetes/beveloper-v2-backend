@@ -1,8 +1,7 @@
 import { Module } from '@nestjs/common';
-import { FilemanagerService } from './filemanager.service';
-import { FilemanagerResolver } from './filemanager.resolver';
+import { FilemanagerResolver } from './resolver/filemanager.resolver';
 
 @Module({
-  providers: [FilemanagerService, FilemanagerResolver],
+  providers: [FilemanagerResolver],
 })
 export class FilemanagerModule {}

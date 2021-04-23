@@ -28,4 +28,4 @@ services:
 networks:
   default:
     external:
-      name: bev_networks
+      name: beveloper_networks

@@ -2,30 +2,30 @@ version: '3.3'
 
 services:
   backend:
+    container_name: backend_container
     # image: gcr.io/registryId/backend_dev
     build:
       context: .
       dockerfile: Dockerfile.dev
-    # volumes:
-    #   - ./src:/backend/src
+    volumes:
+      - ./src:/backend/src
     ports:
       - 4000:4000
     env_file:
       - ./.env.development
     command: 'npm run start:dev'
-    # logging:
-    #   driver: gcplogs
-    links:
+    depends_on:
       - postgres
 
   postgres:
+    container_name: postgres_container
     image: postgres:11
     environment:
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD_DEVELOPMENT}
     ports:
-      - 5432:5432
+      - '5432:5432'
 
 networks:
   default:
     external:
-      name: ipt_networks
+      name: beveloper_networks

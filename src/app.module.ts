@@ -9,6 +9,13 @@ import { FilemanagerModule } from './filemanager/filemanager.module';
 import { CommentModule } from './comment/comment.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
+import { User } from './user/entity/user.entities';
+import { Lecture } from './lecture/entity/lecture.entites';
+import { Board } from './board/entity/board.entites';
+import { Comment } from './comment/entity/comment.entites';
+import { Video } from './video/entity/video.entites';
+import { FileManager } from './filemanager/entity/filemanager.entites';
+import { EmailModule } from './shared/email/email.module';
 
 @Module({
   imports: [
@@ -20,12 +27,13 @@ import { ConfigModule } from '@nestjs/config';
     }),
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: 'localhost',
+      host: 'postgres_container',
+      // host: 'localhost',
       port: 5432,
       username: process.env.POSTGRES_USERNAME,
       password: process.env.POSTGRES_PASSWORD,
       database: process.env.POSTGRES_DATABASE,
-      entities: [],
+      entities: [User, Lecture, Board, Comment, Video, FileManager],
       synchronize: process.env.NODE_ENV === 'development',
     }),
     GraphQLModule.forRoot({
@@ -36,6 +44,7 @@ import { ConfigModule } from '@nestjs/config';
     LectureModule,
     FilemanagerModule,
     CommentModule,
+    EmailModule,
   ],
   controllers: [],
   providers: [AppService],
